@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hlstack"
+version = "0.1.0"
+description = "Hyperliquid L4 order-book data factory + replay-validated backtest kernels (l3/exact) + strategy & RL shells"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "orjson",
+  "requests",
+]
+
+[project.optional-dependencies]
+bench = ["hftbacktest", "numba"]
+rl = ["gymnasium"]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+Homepage = "https://n0moree.github.io/hlstack/"
+Repository = "https://github.com/N0MOREE/hlstack"
+
+[tool.setuptools]
+packages = ["kernels", "shells", "shells.strategy", "shells.rl"]
+
+[tool.pytest.ini_options]
+markers = ["data: requires local replay data (sample/ or HL_REPLAY_ROOT)"]
+
+[tool.ruff]
+line-length = 100

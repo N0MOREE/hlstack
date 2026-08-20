@@ -1,0 +1,21 @@
+# 数据与产物永不入库
+*.npz
+*.tsv.gz
+*.ndjson.gz
+*.jsonl
+*.log
+target/
+# docs/data/ 是随文档分发的结论产物(几十 KB 的 json),要入库
+!docs/data/
+# sample/ 是随仓样例数据包,整目录入库(my_* 除外,见文末)
+!sample/*
+__pycache__/
+*.pyc
+.venv/
+ckpt*.pt
+# 密钥
+.env
+*.key
+secrets*
+*.egg-info/
+sample/my_*
